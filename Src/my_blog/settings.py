@@ -121,13 +121,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # IF YOU WANT TO USE STATIC FILE TO ALL POJACT YOU CAN USE THIS CODE
-STATICFILES_DIRS=[
-    (os.path.join(BASE_DIR,'static')),
-    'D:/Users/Ameen/Desktop/django/Src/static',
+#STATICFILES_DIRS=[
+ #   (os.path.join(BASE_DIR,'static')),
+ #   'D:/Users/Ameen/Desktop/django/Src/static',
+#]
     # WRONG CODE
 #STATICFILES_DIRS = {
 #os.path.join(BASE_DIR ,'static'),
     # }
 
-                      ]
 
