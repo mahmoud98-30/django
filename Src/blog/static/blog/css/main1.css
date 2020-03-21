@@ -14,4 +14,12 @@ body{
 .dropdown-menu .dropdown-item{
    text-align: right;
 }
+.bg-secondary {
+    background-color: #48d0a4 !important;
+}
+.bg-light{
+background-color:#51b997 !important;
+
+}
+
 
