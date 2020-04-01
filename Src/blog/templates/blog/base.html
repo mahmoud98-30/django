@@ -4,10 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if title %}
+    <title>مدونة | {{title}}</title>
+    {% else %}
+    <title>مدونة</title>
+    {% endif %}
     <link href="{% static 'blog/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'blog/css/main1.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'blog/css/main.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'blog/img/kindpng_4859372.png' %}" rel="shotcut icon"  />
-    <title>DJANGO</title>
 </head>
 <body>
 <header>
@@ -23,7 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">الرئسية <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{home}}/">الرئسية <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -37,7 +41,8 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">من انا</a>
+                    <!-- <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li> -->
+                    <a class="nav-link" href="/about{{ about }}/">من انا</a>
                 </li>
             </ul>
             <ul class="navbar-nav mr-auto">
