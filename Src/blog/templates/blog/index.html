@@ -1,11 +1,16 @@
 {% extends 'blog/base.html'%}
 {% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}"> {{message}} </div>
+{% endfor %}
+{% endif %}
 {% for post in posts%}
   <div class="post p-3 mb-4">
       <img class="img-fluid rounded-circle border m-2" style="width: 70px; height:70px;"
       src="138-1387775_login-to-do-whatever-you-want-login-icon.png" alt="صورة الناشر">
     <span class="text-secondary">نشر في {{post.post_date|date:'d-m-Y'}}</span>
-     <h3><a class="text-dark" href="">{{post.title}}</a></h3>
+     <h3><a class="text-dark" href="{% url 'blog:detail' post.id %}">{{post.title}}</a></h3>
      <p>{{post.content}}</p>
   </div>
 {% endfor %}
