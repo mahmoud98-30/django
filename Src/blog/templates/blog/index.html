@@ -8,10 +8,17 @@
 {% for post in posts%}
   <div class="post p-3 mb-4">
       <img class="img-fluid rounded-circle border m-2" style="width: 70px; height:70px;"
-      src="138-1387775_login-to-do-whatever-you-want-login-icon.png" alt="صورة الناشر">
+      src="{{post.author.profile.image.url}}" alt="صورة الناشر">
     <span class="text-secondary">نشر في {{post.post_date|date:'d-m-Y'}}</span>
      <h3><a class="text-dark" href="{% url 'blog:detail' post.id %}">{{post.title}}</a></h3>
-     <p>{{post.content}}</p>
+     <p>
+         {% if post.content|length > 40 %}
+            {{post.content|slice:'100'}} <a class="text-dark" href="{% url 'blog:detail' post.id %}">اقراء المزيد</a>
+            {% else %}
+            {{post.content}}
+            {% endif %}
+     </p>
   </div>
 {% endfor %}
+{% include 'blog/pagination.html' with page=posts %}
 {% endblock content %}

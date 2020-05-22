@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post ,Comment
 from .forms import NewComment
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 posts = [
     {
         'title':'التدوينة الاولة',
@@ -23,10 +24,21 @@ posts = [
 ]
 
 def home(request):
-
+    posts = Post.objects.all()
+    # how meny posts viwe in home
+    paginator = Paginator(posts, 5)
+    page = request.GET.get('page')
+    # code can you browse between pages
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_page)
     context = {
         'title': 'الصفحة الرئيسية',
-        'posts': Post.objects.all(),
+        'posts': posts,
+        'page': page,
     }
     return render(request, 'blog/index.html', context)
 

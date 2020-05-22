@@ -132,4 +132,10 @@ STATIC_URL = '/static/'
 #os.path.join(BASE_DIR ,'static'),
     # }
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/'
+
+
+# for pillow library
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
