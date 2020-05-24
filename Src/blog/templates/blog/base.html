@@ -11,7 +11,7 @@
     <title>مدونة</title>
     {% endif %}
     <link href="{% static 'blog/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
-    <link href="{% static 'blog/css/main1.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'blog/css/main.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'blog/img/kindpng_4859372.png' %}" rel="shotcut icon"  />
 </head>
 <body>
@@ -48,7 +48,7 @@
             </ul>
             {% if user.is_authenticated %}
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">تدوينة جديدة</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/new_post{{ new_post }}/">تدوينة جديدة</a></li>
                     <li class="nav-item"><a class="nav-link" href="/profile{{ profile }}/">الملف الشخصي</a></li>
                     <li class="nav-item"><a class="nav-link" href="/logout{{ logout }}/">تسجيل خروج</a></li>
                 </ul>
